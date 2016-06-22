@@ -1,0 +1,9 @@
+{
+	"youtube_stream_key": "aaaa-1111-bbbb-2222",
+	"video_width": 1920,
+	"video_height": 1080,
+	"video_rotation": 0,
+	"video_exposure": "auto",
+	"video_awb": "auto",
+	"is_verbose": true
+}
