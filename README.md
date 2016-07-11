@@ -74,7 +74,7 @@ $ sudo systemctl stop rpi-camera-youtube-streamer.service
 If you want to launch it automatically on boot:
 
 ```bash
-$ sudo systemctl enable telegram-bot-rpi-camera.service
+$ sudo systemctl enable rpi-camera-youtube-streamer.service
 ```
 
 ## 998. Any trouble?
