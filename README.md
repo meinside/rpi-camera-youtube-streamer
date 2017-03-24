@@ -17,14 +17,6 @@ You need:
 ## 2. How can I build it?
 
 ```bash
-$ go get -d github.com/meinside/rpi-camera-youtube-streamer
-$ cd $GOPATH/src/github.com/meinside/rpi-camera-youtube-streamer
-$ go build
-```
-
-or
-
-```bash
 $ git clone https://github.com/meinside/rpi-camera-youtube-streamer.git
 $ cd rpi-camera-youtube-streamer
 $ go build
