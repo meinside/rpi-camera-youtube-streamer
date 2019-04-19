@@ -10,8 +10,8 @@ You need:
 
 * Raspberry Pi
 * Raspberry Pi Camera Module enabled, and its cable correctly connected
-* [golang installed on Raspberry Pi](https://github.com/meinside/rpi-configs/blob/master/bin/prep_go.sh)
-* [ffmpeg installed on Raspberry Pi](https://github.com/meinside/rpi-configs/blob/master/bin/prep_ffmpeg.sh)
+* [golang installed on Raspberry Pi](https://github.com/meinside/rpi-configs/blob/master/bin/install_go.sh)
+* [ffmpeg installed on Raspberry Pi](https://github.com/meinside/rpi-configs/blob/master/bin/install_ffmpeg.sh)
 * and this README.md.
 
 ## 2. How can I build it?
