@@ -13,7 +13,10 @@ import (
 )
 
 const (
-	ConfigFilename = "config.json"
+	configFilename = "config.json"
+
+	raspividBinPath = "/usr/bin/raspivid"
+	ffmpegBinPath   = "/usr/local/bin/ffmpeg"
 )
 
 type config struct {
@@ -41,7 +44,7 @@ func getConfig() (conf config, err error) {
 	var execFilepath string
 	if execFilepath, err = os.Executable(); err == nil {
 		var file []byte
-		if file, err = ioutil.ReadFile(filepath.Join(filepath.Dir(execFilepath), ConfigFilename)); err == nil {
+		if file, err = ioutil.ReadFile(filepath.Join(filepath.Dir(execFilepath), configFilename)); err == nil {
 			if err = json.Unmarshal(file, &conf); err == nil {
 				return conf, nil
 			}
@@ -100,8 +103,8 @@ func main() {
 	}
 
 	// commands
-	raspivid := exec.Command("raspivid", raspividArgs...)
-	ffmpeg := exec.Command("ffmpeg", ffmpegArgs...)
+	raspivid := exec.Command(raspividBinPath, raspividArgs...)
+	ffmpeg := exec.Command(ffmpegBinPath, ffmpegArgs...)
 
 	// pipe raspivid's STDOUT to ffmpeg's STDIN
 	reader, writer := io.Pipe()
