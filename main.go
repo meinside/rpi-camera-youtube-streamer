@@ -5,16 +5,18 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"os"
 	"os/exec"
-	"path"
 	"path/filepath"
-	"runtime"
 	"strconv"
 	"strings"
 )
 
 const (
-	ConfigFilename = "config.json"
+	configFilename = "config.json"
+
+	raspividBinPath = "/usr/bin/raspivid"
+	ffmpegBinPath   = "/usr/local/bin/ffmpeg"
 )
 
 type config struct {
@@ -38,19 +40,17 @@ var videoAWB string
 var isVerbose bool
 
 // Read config
-func getConfig() (config, error) {
-	_, filename, _, _ := runtime.Caller(0) // = __FILE__
-
-	if file, err := ioutil.ReadFile(filepath.Join(path.Dir(filename), ConfigFilename)); err == nil {
-		var conf config
-		if err := json.Unmarshal(file, &conf); err == nil {
-			return conf, nil
-		} else {
-			return config{}, err
+func getConfig() (conf config, err error) {
+	var execFilepath string
+	if execFilepath, err = os.Executable(); err == nil {
+		var file []byte
+		if file, err = ioutil.ReadFile(filepath.Join(filepath.Dir(execFilepath), configFilename)); err == nil {
+			if err = json.Unmarshal(file, &conf); err == nil {
+				return conf, nil
+			}
 		}
-	} else {
-		return config{}, err
 	}
+	return config{}, err
 }
 
 func init() {
@@ -103,8 +103,8 @@ func main() {
 	}
 
 	// commands
-	raspivid := exec.Command("raspivid", raspividArgs...)
-	ffmpeg := exec.Command("ffmpeg", ffmpegArgs...)
+	raspivid := exec.Command(raspividBinPath, raspividArgs...)
+	ffmpeg := exec.Command(ffmpegBinPath, ffmpegArgs...)
 
 	// pipe raspivid's STDOUT to ffmpeg's STDIN
 	reader, writer := io.Pipe()
