@@ -61,7 +61,7 @@ If nothing goes wrong, you'll see your live streaming in your dashboard in sever
 ### B. Or with docker-compose
 
 ```bash
-$ docker-compose run app
+$ docker-compose up
 ```
 
 ## 5. How can I run it as a service?
