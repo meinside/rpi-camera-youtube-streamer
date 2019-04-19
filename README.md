@@ -31,7 +31,7 @@ You can get your key in your [Live Stream Dashboard](https://www.youtube.com/liv
 
 ## 3. How can I build it?
 
-###. A. Manually,
+### A. Manually,
 
 ```bash
 $ git clone https://github.com/meinside/rpi-camera-youtube-streamer.git
