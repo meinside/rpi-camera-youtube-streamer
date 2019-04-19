@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  app:
+    build: .
+    image: rpi-youtube-streamer:latest
+    devices:
+      - "/dev/vchiq:/dev/vchiq"
+    restart: always
+    command: app
