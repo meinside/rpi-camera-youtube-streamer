@@ -10,8 +10,8 @@ You need:
 
 * Raspberry Pi
 * Raspberry Pi Camera Module enabled, and its cable correctly connected
-* [golang installed on Raspberry Pi](https://github.com/meinside/rpi-configs/blob/master/bin/install_go.sh)
-* [ffmpeg installed on Raspberry Pi](https://github.com/meinside/rpi-configs/blob/master/bin/install_ffmpeg.sh)
+* [golang installed on Raspberry Pi](https://github.com/meinside/dotfiles/raw/master/bin/install_go.sh)
+* [ffmpeg installed on Raspberry Pi](https://github.com/meinside/dotfiles/raw/master/bin/install_ffmpeg.sh)
 * and this README.md.
 
 ## 2. How can I configure it?
@@ -41,7 +41,7 @@ $ go build
 
 ### B. Or with docker-compose
 
-#### a. Raspberry Pi 3B, 3B+
+#### a. Raspberry Pi 3B, 3B+, 4
 
 ```bash
 $ docker-compose build
